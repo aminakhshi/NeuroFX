@@ -2,6 +2,7 @@
 import pygame
 import random
 import time
+import imageio
 
 # Initialize pygame
 pygame.init()
@@ -9,12 +10,13 @@ pygame.init()
 # Constants
 WIDTH, HEIGHT = 800, 600
 CIRCLE_RADIUS = 20
-CIRCLE_COUNT = 100
+CIRCLE_COUNT = 200
 SPEED = 5
 
 # Colors
 WHITE = (255, 255, 255)
 RED = (255, 0, 0)
+BLUE = (0, 0, 255)
 colors = [(random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)) for _ in range(CIRCLE_COUNT)]
 
 # Create the window
@@ -54,13 +56,18 @@ def is_inside_triangle(x, y, center_x, center_y):
     height = 35
     return center_x - height <= x <= center_x + height and center_y - half_base <= y <= center_y + half_base
 
-def draw_square(center_x, center_y, size=40):
+def draw_square(center_x, center_y, size=35):
     pygame.draw.rect(win, RED, (center_x - size/2, center_y - size/2, size, size))
 
-def is_inside_square(x, y, center_x, center_y, size=40):
+def is_inside_square(x, y, center_x, center_y, size=35):
     return center_x - size/2 <= x <= center_x + size/2 and center_y - size/2 <= y <= center_y + size/2
 
-def run_game():
+# Adding frames to create a gif
+
+def run_game(save_gif=False):
+    if save_gif:
+        frames = []
+
     circles = [Circle(random.randint(CIRCLE_RADIUS, WIDTH - CIRCLE_RADIUS),
                       random.randint(CIRCLE_RADIUS, HEIGHT - CIRCLE_RADIUS)) for _ in range(CIRCLE_COUNT)]
     correct_clicks = 0
@@ -84,7 +91,7 @@ def run_game():
             shape_time = time.time()
             shape_center = (random.randint(40, WIDTH - 40), random.randint(40, HEIGHT - 40))
         # Hide shape after 3 seconds
-        if shape_displayed and time.time() - shape_time > 3:
+        if shape_displayed and time.time() - shape_time > 2:
             shape_displayed = None
 
         for event in pygame.event.get():
@@ -95,10 +102,6 @@ def run_game():
                 if shape_displayed == "triangle" and is_inside_triangle(x, y, *shape_center):
                     correct_clicks += 1
                     correct_latencies.append(time.time() - shape_time)
-                    shape_displayed = None
-                if shape_displayed == "triangle" and is_inside_triangle(x, y, *shape_center):
-                    correct_clicks += 1
-                    latencies.append(time.time() - shape_time)
                     shape_displayed = None
                 elif shape_displayed == "square" and is_inside_square(x, y, *shape_center):
                     incorrect_clicks += 1
@@ -121,9 +124,19 @@ def run_game():
             draw_square(*shape_center)
 
         pygame.display.flip()
+        if save_gif:
+            pygame_image = pygame.surfarray.array3d(pygame.display.get_surface())
+            frames.append(pygame_image)
         pygame.time.Clock().tick(60)
 
     pygame.quit()
+    if save_gif:
+        # Rotate the frames by 90 degrees
+        rotated_frames = []
+        for frame in frames:
+            rotated_surf = pygame.transform.rotate(pygame.surfarray.make_surface(frame), 90)
+            rotated_frames.append(pygame.surfarray.array3d(rotated_surf))
+        imageio.mimsave('game_output.gif', rotated_frames, fps=60)
     return {
             "correct_clicks": correct_clicks,
             "incorrect_clicks": incorrect_clicks,
