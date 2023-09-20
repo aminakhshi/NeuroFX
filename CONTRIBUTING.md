@@ -1,16 +1,10 @@
-# Contributing to [project-title]
+# Contributing to NeuroFX
 
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
-Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
+We welcome contributions and suggestions to NeuroFX. Before proceeding with your contribution, please ensure you agree to a Contributor License Agreement (CLA) which declares that you grant us the rights to use your contribution. For details on our CLA, please contact our project maintainers.
 
-When you submit a pull request, a CLA bot will automatically determine whether you need to provide
-a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions
-provided by the bot. You will only need to do this once across all repos using our CLA.
+Upon submitting a pull request, our automated system will determine whether you need to provide a CLA. Follow the instructions provided by the system as necessary. If you've already agreed to our CLA in another context, you won't have to do it again for this project.
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+NeuroFX upholds a high standard of conduct to maintain a collaborative and open environment. We've adopted a [Code of Conduct](#coc) and encourage all contributors to adhere to it.
 
  - [Code of Conduct](#coc)
  - [Issues and Bugs](#issue)
@@ -18,59 +12,47 @@ contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additio
  - [Submission Guidelines](#submit)
 
 ## <a name="coc"></a> Code of Conduct
-Help us keep this project open and inclusive. Please read and follow our [Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
+To maintain a positive and inclusive environment for all contributors, we ask that you read and follow our Code of Conduct.
 
 ## <a name="issue"></a> Found an Issue?
-If you find a bug in the source code or a mistake in the documentation, you can help us by
-[submitting an issue](#submit-issue) to the GitHub Repository. Even better, you can
-[submit a Pull Request](#submit-pr) with a fix.
+If you encounter a bug in the source code or an error in our documentation, please assist us by [submitting an issue](#submit-issue) to our GitHub Repository. If you can, [submit a Pull Request](#submit-pr) with a fix.
 
 ## <a name="feature"></a> Want a Feature?
-You can *request* a new feature by [submitting an issue](#submit-issue) to the GitHub
-Repository. If you would like to *implement* a new feature, please submit an issue with
-a proposal for your work first, to be sure that we can use it.
+If you desire a new feature, you can request it by [submitting an issue](#submit-issue) to our GitHub Repository. If you're keen on implementing a new feature yourself, please propose your idea through an issue first.
 
-* **Small Features** can be crafted and directly [submitted as a Pull Request](#submit-pr).
+* **Minor Features** can be crafted and directly [submitted as a Pull Request](#submit-pr).
 
 ## <a name="submit"></a> Submission Guidelines
 
 ### <a name="submit-issue"></a> Submitting an Issue
-Before you submit an issue, search the archive, maybe your question was already answered.
+Before opening a new issue, please check previous issues to avoid duplication.
 
-If your issue appears to be a bug, and hasn't been reported, open a new issue.
-Help us to maximize the effort we can spend fixing issues and adding new
-features, by not reporting duplicate issues.  Providing the following information will increase the
-chances of your issue being dealt with quickly:
+For bug reports, include the following to help expedite resolution:
 
-* **Overview of the Issue** - if an error is being thrown a non-minified stack trace helps
-* **Version** - what version is affected (e.g. 0.1.2)
-* **Motivation for or Use Case** - explain what are you trying to do and why the current behavior is a bug for you
-* **Browsers and Operating System** - is this a problem with all browsers?
-* **Reproduce the Error** - provide a live example or a unambiguous set of steps
-* **Related Issues** - has a similar issue been reported before?
-* **Suggest a Fix** - if you can't fix the bug yourself, perhaps you can point to what might be
-  causing the problem (line of code or commit)
+* **Overview of the Issue** - any error details or stack traces are helpful
+* **Version** - specify which version of NeuroFX you're using
+* **Motivation or Use Case** - detail what you're trying to accomplish and why the current behavior isn't satisfactory
+* **Browsers and Operating System** - indicate if the issue is browser-specific
+* **Steps to Reproduce** - provide a clear set of steps or an example
+* **Related Issues** - mention if similar issues have been reported before
+* **Possible Solution** - if you have a suggestion or clues on where the issue may lie
 
-You can file new issues by providing the above information at the corresponding repository's issues link: https://github.com/[organization-name]/[repository-name]/issues/new].
+For new issues, use: https://github.com/aminakhshi/NeuroFX/issues/new
 
 ### <a name="submit-pr"></a> Submitting a Pull Request (PR)
-Before you submit your Pull Request (PR) consider the following guidelines:
+Before you submit your PR, consider the following:
 
-* Search the repository (https://github.com/[organization-name]/[repository-name]/pulls) for an open or closed PR
-  that relates to your submission. You don't want to duplicate effort.
-
-* Make your changes in a new git fork:
-
-* Commit your changes using a descriptive commit message
-* Push your fork to GitHub:
-* In GitHub, create a pull request
-* If we suggest changes then:
-  * Make the required updates.
-  * Rebase your fork and force push to your GitHub repository (this will update your Pull Request):
+* Check if a similar PR has already been submitted or addressed.
+* Fork the repository and make your changes.
+* Commit with a clear and descriptive message.
+* Push your fork to GitHub and initiate a pull request.
+* If we recommend modifications:
+  * Update as needed.
+  * Rebase your fork and force push to update your PR:
 
     ```shell
     git rebase master -i
     git push -f
     ```
 
-That's it! Thank you for your contribution!
+Thank you for considering contributing to NeuroFX!
